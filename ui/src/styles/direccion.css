@@ -1,0 +1,48 @@
+
+.form_direccion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px; 
+  padding: 20px; 
+  background-color: #fff;
+  border-radius: 10px; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+}
+
+.form_direccion label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.form_direccion input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form_direccion button {
+  padding: 8px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form_direccion button:hover {
+  background-color: #0056b3; 
+}
+
+.custom-select {
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+}

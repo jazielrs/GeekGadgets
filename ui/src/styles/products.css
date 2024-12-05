@@ -1,0 +1,12 @@
+.productContent{
+  width: 250px;
+}
+
+.btn btn-success mt-3{
+  cursor : pointer;
+}
+
+.btnAgregar:hover,
+.btnEliminar:hover {
+  box-shadow: 0px 0px 10px #04ff26; 
+}

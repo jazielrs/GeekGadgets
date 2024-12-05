@@ -1,0 +1,50 @@
+.reports-container {
+  display: flex;
+}
+
+.charts-container {
+  display: flex;
+  width: 100%;
+}
+
+.column {
+  flex: 1;
+  padding: 10px;
+}
+
+.chart-title {
+  font-family: 'Arial', sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  color: #000000;
+}
+
+.google-chart-table {
+  border-collapse: collapse;
+  width: 100%;
+  border: 2px solid #ddd;
+}
+
+.google-chart-table-cell,
+.google-chart-header-cell {
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+.google-chart-table-row,
+.google-chart-odd-table-row {
+  background-color: #f2f2f2;
+}
+
+
+.google-chart-selected-table-row {
+  background-color: #ccc;
+}
+
+.google-chart-hover-table-row:hover {
+  background-color: #ddd;
+}
+
+.google-chart-table-cell {
+  text-align: center;
+}
