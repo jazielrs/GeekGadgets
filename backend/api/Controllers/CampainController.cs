@@ -13,7 +13,7 @@ namespace core.Controllers
         CampainBusiness camp = new CampainBusiness();
 
         [HttpPost("campannas")] 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")] 
         public IActionResult SaveCampain([FromBody] Campain campain)
         {
             if (campain == null)
@@ -25,7 +25,7 @@ namespace core.Controllers
         }
 
         [HttpGet("campannas")]
-        [AllowAnonymous]
+        [AllowAnonymous] 
         public async Task<IActionResult> GetCampains()
         {
             try
@@ -40,6 +40,7 @@ namespace core.Controllers
         }
 
         [HttpPut("campannas")] 
+        [Authorize(Roles = "Admin")] 
         public void DeleteCampains(string message)
         {
             try

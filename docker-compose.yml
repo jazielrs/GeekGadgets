@@ -1,0 +1,48 @@
+version: "3.8"
+
+services:
+  mysql:
+    image: mysql:latest
+    container_name: bd
+    restart: always
+    networks:
+      - ecommerce-net
+    environment:
+      - MYSQL_ROOT_PASSWORD=12345
+    ports:
+      - "3306:3306"
+
+  api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: ecommerce-api
+    restart: always
+    depends_on:
+      - mysql  
+    environment:
+      - MyDB=Server=mysql;Database=store;Uid=root;Pwd=12345;  
+    networks:
+      - ecommerce-net
+    ports:
+      - "7265:7265"
+
+  ui:
+    build:
+      context: ./ui
+      dockerfile: Dockerfile
+    container_name: ecommerce-ui
+    restart: always
+    depends_on:
+      - api  
+    environment:
+      - NEXT_PUBLIC_API=http://api:7265
+      - API=http://api:7265
+    networks:
+      - ecommerce-net
+    ports:
+      - "3000:3000"
+
+networks:
+  ecommerce-net:
+    driver: bridge

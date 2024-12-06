@@ -6,7 +6,7 @@ import Navbar from '../../../components/Navbar';
 
 const Product = () => {
 
-    const URLConection = process.env.NEXT_PUBLIC_API;
+    const URLConection = process.env.API;
 
     const [cantidadMensajes, setCantidadMensajes] = useState(() => {
         const storedCantidadMensajes = localStorage.getItem('cantidadMensajes');

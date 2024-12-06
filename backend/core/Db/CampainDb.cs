@@ -73,7 +73,9 @@ namespace core.DataBase
                                 int status = (int)reader["status"];
 
                                 Campain campain = new Campain(sender, messageContent, status);
-                                messages.Add(campain);
+                                if(status!=0){
+                                    messages.Add(campain);
+                                }
                             }
                         }
                     }

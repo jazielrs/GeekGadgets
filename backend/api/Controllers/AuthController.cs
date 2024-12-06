@@ -53,9 +53,7 @@ namespace geekstore_api.Controllers
                 var secretKey = "TheSecretKeyNeedsToBePrettyLongSoWeNeedToAddSomeCharsHere"; 
                 var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
                 var signinCredentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-                var tokeOptions = new JwtSecurityToken(
-                    issuer: "https://localhost:5001",
-                    audience: "https://localhost:5001",
+                 var tokeOptions = new JwtSecurityToken(
                     claims: claims,
                     expires: DateTime.Now.AddMinutes(10),
                     signingCredentials: signinCredentials

@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
+import * as signalR from "@microsoft/signalr";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from '../components/Navbar';
 import Producs from '../components/Producs';
@@ -9,7 +10,6 @@ import { Dropdown } from 'react-bootstrap';
 export default function Home() {
 
   const URLConection = process.env.NEXT_PUBLIC_API;
-
 
   const initialState = {
     productosCarrusel: [],
@@ -64,6 +64,7 @@ export default function Home() {
     const storedCantidadMensajes = localStorage.getItem('cantidadMensajes');
     return storedCantidadMensajes ? parseInt(storedCantidadMensajes, 10) : 0;
   });
+  const [connection, setConnection] = useState(null);
 
   useEffect(() => {
     const storedCantidadMensajes = localStorage.getItem('cantidadMensajes');
@@ -103,6 +104,40 @@ export default function Home() {
       }
     }
   }, []);
+
+  useEffect(() => {
+    const newConnection = new signalR.HubConnectionBuilder()
+      .withUrl(URLConection + "/chatHub")
+      .withAutomaticReconnect()
+      .build();
+
+    const startConnection = async () => {
+      try {
+        await newConnection.start();
+        setConnection(newConnection);
+      } catch (err) {
+        console.error('SignalR Connection Error:', err);
+        setTimeout(startConnection, 5000);
+      }
+    };
+
+    startConnection();
+    return () => newConnection.stop();
+  }, [URLConection]);
+
+  useEffect(() => {
+    if (!connection) return;
+
+    connection.on("ReceiveMessage", () => {
+      setCantidadMensajes(prev => {
+        const newCount = prev + 1;
+        localStorage.setItem('cantidadMensajes', newCount.toString());
+        return newCount;
+      });
+    });
+
+    return () => connection.off("ReceiveMessage");
+  }, [connection]);
 
   const getCategoryName = (categoryId) => {
     switch (categoryId) {

@@ -14,7 +14,7 @@ namespace geekstore_api.Controllers
         StoreDb store = new StoreDb();
         Products prod = new Products();
         [HttpGet("product")]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")] 
         public Store GetStore()
         {
             return Store.Instance;
@@ -22,7 +22,7 @@ namespace geekstore_api.Controllers
 
 
         [HttpPost("product")]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")] 
         public IActionResult SaveProducts([FromBody] ProductAlt product)
         {
             var id = store.ExtraerIDMax();

@@ -29,10 +29,8 @@ const Reports = () => {
       if (!token) {
         window.location.href = "/admin";
       }
-
       const decodedToken = JSON.parse(atob(token.split(".")[1]));
       const expirationDate = new Date(decodedToken.exp * 1000);
-
       if (new Date() > expirationDate) {
         sessionStorage.removeItem("token");
         window.location.href = "/admin";
@@ -94,6 +92,8 @@ const Reports = () => {
         });
 
         if (!response.ok) {
+          const errorMessage = await response.text();
+          throw new Error('Error al obtener el reporte:', errorMessage);
           throw new Error('Failed to fetch data');
         }
         const reports = await response.json();
