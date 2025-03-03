@@ -5,16 +5,35 @@ Welcome to the Online Geek Store project! This project aims to provide a platfor
 ## Features
 
 ### 1. Product Catalog
-Browse through an extensive catalog of technological products, including games, laptops, accessories, and more. Each product listing includes detailed information snd pricing.
+The heart of our platform is the **Product Catalog**, where customers can browse through an extensive selection of technological products. Key features include:
+- **Detailed Listings**: Each product comes with a detailed description, high-quality images, technical specifications, customer reviews, and price information.
+- **Product Sorting and Filtering**: Users can filter products by category (e.g., gaming, laptops, accessories), price range, ratings, and other key attributes to help find the perfect product.
+- **Product Search**: A robust search engine that enables users to search for products by name, brand, or category.
 
 ### 2. Payment Options
-Choose between two convenient payment methods: cash on delivery or mobile money (Sinpe Movil). Our platform ensures secure transactions for a seamless shopping experience.
+Flexible payment methods to accommodate a variety of user preferences:
+- **Cash on Delivery**:Ideal for customers who prefer physical transactions.
+- **Mobile Money (Sinpe Movil)**: Pay conveniently through the **Sinpe Movil** service for a quick and secure online payment experience.
+  
 
 ### 3. Weekly Sales Reports
 Stay informed about the store's performance with weekly sales reports. These reports provide valuable insights into sales trends, popular products, and revenue generation. Accessible to authorized personnel for strategic decision-making.
 
 ### 4. Category Search
-Effortlessly find products by browsing through specific categories. Whether you're looking for entertaiment, laptops, or accessories, our category search functionality simplifies the shopping process.
+**Category Search** feature enables users to easily navigate and find the products they are most interested in. Categories include:
+- **Entertainment** (Games, movies, gaming consoles, etc.)
+- **Laptops and Computers**
+- **Tech Accessories** (Headphones, chargers, keyboards, etc.)
+
+## Installation
+
+To set up the **Online Geek Store** project on your local machine, follow these steps:
+
+### Prerequisites
+- **Docker desktop** 
+- **Node.js** (v14.0 or later)
+- **SQLDB** (using Docker image)
+- **npm** (Node package manager)
 
 ## WebApp Architecture
 
