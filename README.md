@@ -35,6 +35,35 @@ To set up the **Online Geek Store** project on your local machine, follow these 
 - **SQLDB** (using Docker image)
 - **npm** (Node package manager)
 
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/yourusername/online-geek-store.git
+
+2. **Navigate to the Project Folder:**
+   ```bash
+  cd online-geek-store
+
+3. **Install dependencies:**
+   ```bash
+   npm install
+
+4. **Get sql image:**
+   ```bash
+   docker pull mysql
+
+5. **Get sql image:**
+   ```bash
+   docker run mysql
+
+6. **Configure Environment Variables:**
+    ```bash
+   NEXT_PUBLIC_API=http://localhost:5022
+   API=http://localhost:7265
+
+7. **Run the Development Server:**
+    ```bash
+   npm run dev
+
 ## WebApp Architecture
 
 ### UML Diagram
