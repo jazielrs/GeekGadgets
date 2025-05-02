@@ -5,11 +5,11 @@ import "../../styles/direccion.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const Detalle = () => {
-
   const URLConection = process.env.NEXT_PUBLIC_API;
   const [confirmed, setConfirmed] = useState(false);
   const [orderDetails, setOrderDetails] = useState(undefined);
   const [dataObject, setDataObject] = useState(null);
+  const [telefonoGenerado, setTelefonoGenerado] = useState(null);
   const [cantidadMensajes, setCantidadMensajes] = useState(() => {
     const storedCantidadMensajes = localStorage.getItem('cantidadMensajes');
     return storedCantidadMensajes ? parseInt(storedCantidadMensajes, 10) : 0;
@@ -25,6 +25,9 @@ const Detalle = () => {
         throw new Error("Error al parsear datos de localStorage:", error);
       }
     }
+
+    // Generar número de teléfono una sola vez
+    setTelefonoGenerado(Math.floor(Math.random() * 100000000));
   }, []);
 
   const mostrarTextArea = dataObject && dataObject.cart && dataObject.cart.metodosPago === 1;
@@ -46,10 +49,6 @@ const Detalle = () => {
     };
     const updatedDataObject = { ...dataObject, cart: updatedCart };
     localStorage.setItem("tienda", JSON.stringify(updatedDataObject));
-  }
-
-  function generarNumeroTelefono() {
-    return Math.floor(Math.random() * 100000000);
   }
 
   const enviarDatosPago = async () => {
@@ -99,12 +98,6 @@ const Detalle = () => {
     }
   };
 
-  const handleTextareaInput = (e) => {
-    const value = e.target.value;
-    const filteredValue = value.replace(/\D/g, '');
-    e.target.value = filteredValue;
-  };
-
   if (!dataObject) {
     return <p></p>; 
   }
@@ -123,13 +116,12 @@ const Detalle = () => {
                   <p>Número de compra: {orderDetails.numeroCompra}</p>
                 </div>
               )}
-              <p>Número de teléfono: {generarNumeroTelefono()}</p>
+              <p>Número de teléfono: {telefonoGenerado}</p>
               {mostrarTextArea && (
                 <textarea
                   className="form-control mt-3"
                   rows="5"
                   placeholder="Comprobante de pago"
-                  onInput={handleTextareaInput}
                 />
               )}
               <button onClick={enviarDatosPago} className="btn btn-info mt-3">
