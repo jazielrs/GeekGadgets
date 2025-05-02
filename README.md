@@ -64,4 +64,10 @@ To set up the **Online Geek Store** project on your local machine, follow these 
 ### UML Diagram
 ![Backend Diagram](https://raw.githubusercontent.com/jazielrs/Pagina_compra/master/backend.png)
 
+### Application Functionality
 
+![Pagina_principal](images/pagina_inicial.png)
+![Modulo_compra](images/modulo_compra.png)
+![Modulo_agregar_producto](images/modulo_agregar_producto.png)
+![Modulo_mensajes](images/modulo_mensajes.png)
+![Reportes](images/reportes.png)
