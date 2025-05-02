@@ -13,7 +13,7 @@ namespace core.Controllers
         PaymentLogic payment = new PaymentLogic();
 
         [HttpGet("pago")] 
-        [Authorize(Roles = "Admin")] 
+        [AllowAnonymous] 
         public async Task<IActionResult> GetPago()
         {
             try
