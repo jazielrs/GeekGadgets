@@ -43,26 +43,21 @@ To set up the **Online Geek Store** project on your local machine, follow these 
    ```bash
    cd ....
 
-4. **Install dependencies:**
+3. **Install dependencies in ui:**
    ```bash
    npm install
 
-5. **Get sql image:**
+4. **Get sql image and run from docker:**
    ```bash
-   docker pull mysql
+   docker run --name mysql2  -e MYSQL_ROOT_PASSWORD=123456  -p 3306:3306 mysql
 
-6. **Get sql image:**
-   ```bash
-   docker run mysql
-
-7. **Configure Environment Variables:**
+5. **Run backend:**
     ```bash
-   NEXT_PUBLIC_API=http://localhost:5022
-   API=http://localhost:7265
+   dotnet run --launch-profile https
 
-8. **Run the Development Server:**
+6. **Run ui:**
     ```bash
-   npm run dev
+   npm run dev 
 
 ## WebApp Architecture
 
