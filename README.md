@@ -59,11 +59,6 @@ To set up the **Online Geek Store** project on your local machine, follow these 
     ```bash
    npm run dev 
 
-## WebApp Architecture
-
-### UML Diagram
-![Backend Diagram](https://raw.githubusercontent.com/jazielrs/Pagina_compra/master/backend.png)
-
 ### Application Functionality
 ---
 ![Pagina_principal](images/pagina_inicial.png)
